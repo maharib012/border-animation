@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 5px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #25252b;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.div-s {
+    height: 150px;
+    width: 150px;
+    background: #2d2d39;
+    position: relative;
+}
+
+@property --a {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 22.5deg;
+}
+
+.a::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--a), #ff2770 0deg, #ff2770 45deg, transparent 45deg, transparent 180deg, #ff2770 180deg, #ff2770 225deg, transparent 225deg);
+    padding: 5px;
+    z-index: -1;
+    animation: rotate 3s linear infinite;
+}
+
+.b::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--a), #45f3ff 0deg, #45f3ff 45deg, transparent 45deg, transparent 180deg, #ff2770 180deg, #ff2770 225deg, transparent 225deg);
+    padding: 5px;
+    z-index: -1;
+    animation: rotate 3s linear infinite;
+}
+
+.c::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    height: 100%;
+    width: 100%;
+    background-image: repeating-conic-gradient(from var(--a), #45f3ff, #ff2770);
+    padding: 5px;
+    z-index: -1;
+    animation: rotate 4s linear infinite;
+}
+
+.d::after,
+.d::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    height: 100%;
+    width: 100%;
+    background-image: repeating-conic-gradient(from var(--a), #45f3ff, #ff2770);
+    padding: 5px;
+    z-index: -1;
+    animation: rotate 4s linear infinite;
+}
+
+.d::before {
+    filter: blur(1.5rem);
+}
+
+.e::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    height: 100%;
+    width: 100%;
+    background-image: repeating-conic-gradient(from var(--a), #ff2770 0%, #ff2770 5%, transparent 5%, transparent 40%, #ff2770 50%);
+    padding: 5px;
+    z-index: -1;
+    animation: rotate 4s linear infinite;
+}
+
+.f {
+    height: 155px;
+    width: 155px;
+    position: relative;
+    background-image: repeating-conic-gradient(from var(--a), #45f3ff 0%, #45f3ff 5%, transparent 5%, transparent 40%, #45f3ff 50%);
+    animation: rotate 4s linear infinite;
+}
+
+.f::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: repeating-conic-gradient(from var(--a), #ff2770 0%, #ff2770 5%, transparent 5%, transparent 40%, #ff2770 50%);
+    animation: rotate 4s linear infinite;
+    animation-delay: -1s;
+}
+
+.f::after {
+    content: "";
+    position: absolute;
+    background: #2d2d39;
+    inset: 5px;
+    border: 5px solid #25252b;
+}
+
+@keyframes rotate {
+    from {
+        --a: 0deg
+    }
+
+    to {
+        --a: 360deg
+    }
+}
